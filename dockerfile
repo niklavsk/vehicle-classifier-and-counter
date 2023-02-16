@@ -2,7 +2,7 @@ FROM python:3.10
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    python3-pip 
+    python3-pip ffmpeg libsm6 libxext6
     
 RUN pip install cython
 RUN pip install pillow>=7.0.0
