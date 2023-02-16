@@ -19,3 +19,5 @@ RUN pip install pycocotools@git+https://github.com/gautamchitnis/cocoapi.git@coc
 
 # Install ImageAI library
 RUN pip install imageai --upgrade
+
+WORKDIR /vehicle-classifier

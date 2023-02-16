@@ -1,1 +1,1 @@
-docker stop vehicle-classifier && docker rm vehicle-classifier && docker rmi vehicle-classifier
+docker stop vehicle-classifier-and-counter_app_1 && docker rm vehicle-classifier-and-counter_app_1 && docker rmi vehicle-classifier-and-counter_app
