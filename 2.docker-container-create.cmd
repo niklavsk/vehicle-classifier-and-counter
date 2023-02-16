@@ -1,0 +1,1 @@
+docker container create -i -t --name vehicle-classifier vehicle-classifier
