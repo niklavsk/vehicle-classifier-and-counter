@@ -1,0 +1,1 @@
+docker run -it -p 8080:8080 -v %cd%/image-annotation-tool:/label-studio/data heartexlabs/label-studio:latest label-studio --log-level DEBUG

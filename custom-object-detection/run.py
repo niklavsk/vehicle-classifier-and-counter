@@ -31,7 +31,7 @@ execution_path = os.getcwd()
 
 video_detector = CustomVideoObjectDetection()
 video_detector.setModelTypeAsYOLOv3()
-video_detector.setModelPath("yolov3_hololens-yolo_mAP-0.82726_epoch-73.pt")
+video_detector.setModelPath("hololens_model.pt")
 video_detector.setJsonPath("hololens-yolo_yolov3_detection_config.json")
 video_detector.loadModel()
 
