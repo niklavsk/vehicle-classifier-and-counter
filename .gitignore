@@ -1,2 +1,3 @@
 /images/
-custom-object-detection/hololens_model.pt
+custom-object-detection/image-dataset_model.pt
+vehicle-classifier-model-training/image-dataset/models/

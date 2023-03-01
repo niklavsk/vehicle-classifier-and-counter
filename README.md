@@ -12,5 +12,5 @@
 - Other vehicles (Citi transportlīdzekļi)
 
 ## Image sources for model creation
-[Vehicle dataset](https://drive.google.com/drive/folders/1a-v4os2Ekr-IezLE-pGNJ7R0plZyf6bE)
-[Open Images Dataset V7](https://storage.googleapis.com/openimages/web/index.html)
+[Vehicle dataset](https://drive.google.com/drive/folders/1a-v4os2Ekr-IezLE-pGNJ7R0plZyf6bE)\
+[Open Images Dataset V7](https://storage.googleapis.com/openimages/web/index.html)\
