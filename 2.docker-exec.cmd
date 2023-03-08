@@ -1,1 +1,0 @@
-docker exec -it vehicle-classifier-and-counter_app_1 bash

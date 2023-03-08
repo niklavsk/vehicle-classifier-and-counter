@@ -1,4 +1,6 @@
 /images/
+/video-image-extractor/images/
+/video-image-extractor/videos/
 *.pt
 traffic_output.mp4
 .DS_Store
