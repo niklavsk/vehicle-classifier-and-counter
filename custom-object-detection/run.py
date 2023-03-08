@@ -8,52 +8,57 @@ OUTPUT_FILE_NAME = "traffic_output"
 MODEL_PATH = "image-dataset_model.pt"
 MODEL_JSON_PATH = "image-dataset_yolov3_detection_config.json"
 CATEGORY_COLOR_MAP = {
-    'Bicycles': 'red', 
-    'Buses': 'steelblue', 
-    'Motorcycles': 'orange', 
-    'Multi-trailer trucks': 'gray', 
-    'Other vehicles': 'chocolate', 
-    'Passenger cars': 'green', 
-    'Pedestrians': 'pink', 
-    'Pick-ups and vans < 3,5t': 'indigo', 
-    'Semi-trailer trucks': 'limegreen', 
+    'Bicycles': 'red',
+    'Buses': 'steelblue',
+    'Motorcycles': 'orange',
+    'Multi-trailer trucks': 'gray',
+    'Other vehicles': 'chocolate',
+    'Passenger cars': 'green',
+    'Pedestrians': 'pink',
+    'Pick-ups and vans < 3,5t': 'indigo',
+    'Semi-trailer trucks': 'limegreen',
     'Trucks > 3,5t': 'gold'
 }
 
 resized = False
 
 def forSecond(frame_number, output_arrays, count_arrays, average_count, returned_frame):
-    plt.clf()
+	try:
+		plt.clf()
 
-    this_colors = []
-    labels = []
-    sizes = []
+		this_colors = []
+		labels = []
+		sizes = []
 
-    counter = 0
+		counter = 0
 
-    for eachItem in average_count:
-        counter += 1
-        labels.append(eachItem + " = " + str(average_count[eachItem]))
-        sizes.append(average_count[eachItem])
-        this_colors.append(CATEGORY_COLOR_MAP[eachItem])
+		for eachItem in average_count:
+			counter += 1
+			labels.append(eachItem + " = " + str(average_count[eachItem]))
+			sizes.append(average_count[eachItem])
+			this_colors.append(CATEGORY_COLOR_MAP[eachItem])
 
-    global resized
+		global resized
 
-    if (resized == False):
-        manager = plt.get_current_fig_manager()
-        manager.resize(1000, 500)
-        resized = True
+		if (resized == False):
+			print("resized")
+			manager = plt.get_current_fig_manager()
+			manager.resize(1800, 700)
+			resized = True
 
-    plt.subplot(1, 2, 1)
-    plt.title("Second : " + str(frame_number))
-    plt.axis("off")
-    plt.imshow(returned_frame, interpolation="none")
+		plt.subplot(1, 2, 1)
+		plt.title("Second : " + str(frame_number))
+		plt.axis("off")
+		plt.imshow(returned_frame, interpolation="none")
 
-    plt.subplot(1, 2, 2)
-    plt.title("Analysis: " + str(frame_number))
-    plt.pie(sizes, labels=labels, colors=this_colors, shadow=True, startangle=140, autopct="%1.1f%%")
+		plt.subplot(1, 2, 2)
+		plt.title("Analysis: " + str(frame_number))
+		plt.pie(sizes, labels=labels, colors=this_colors, shadow=True, startangle=140, autopct="%.2f")
 
-    plt.pause(0.01)
+		plt.pause(0.01)
+
+	except:
+  		print("Something went wrong")
 
 def forFull(output_arrays, count_arrays, average_output_count):
     # TODO: Add write to file
@@ -71,10 +76,10 @@ video_detector.loadModel()
 
 plt.show()
 
-video_detector.detectObjectsFromVideo(input_file_path=INPUT_FILE_NAME, 
+video_detector.detectObjectsFromVideo(input_file_path=INPUT_FILE_NAME,
                                           output_file_path=OUTPUT_FILE_NAME,
-                                          frames_per_second=10, 
-                                        #   per_second_function=forSecond,
+                                          frames_per_second=10,
+                                          per_second_function=forSecond,
                                         #   per_frame_function=forFrame,
                                         #   per_minute_function=forMinute,
                                           video_complete_function=forFull,
