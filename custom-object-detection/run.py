@@ -20,12 +20,6 @@ CATEGORY_COLOR_MAP = {
     'Trucks > 3,5t': 'gold'
 }
 
-# def forFrame(frame_number, output_array, output_count):
-#     print("FOR FRAME " , frame_number)
-#     print("Output for each object : ", output_array)
-#     print("Output count for unique objects : ", output_count)
-#     print("------------END OF A FRAME --------------")
-
 resized = False
 
 def forSecond(frame_number, output_arrays, count_arrays, average_count, returned_frame):
@@ -47,7 +41,7 @@ def forSecond(frame_number, output_arrays, count_arrays, average_count, returned
 
     if (resized == False):
         manager = plt.get_current_fig_manager()
-        manager.resize(width=1000, height=500)
+        manager.resize(1000, 500)
         resized = True
 
     plt.subplot(1, 2, 1)
@@ -60,13 +54,6 @@ def forSecond(frame_number, output_arrays, count_arrays, average_count, returned
     plt.pie(sizes, labels=labels, colors=this_colors, shadow=True, startangle=140, autopct="%1.1f%%")
 
     plt.pause(0.01)
-
-# def forMinute(minute_number, output_arrays, count_arrays, average_output_count):
-#     print("MINUTE : ", minute_number)
-#     print("Array for the outputs of each frame ", output_arrays)
-#     print("Array for output count for unique objects in each frame : ", count_arrays)
-#     print("Output average count for unique objects in the last minute: ", average_output_count)
-#     print("------------END OF A MINUTE --------------")
 
 def forFull(output_arrays, count_arrays, average_output_count):
     # TODO: Add write to file
@@ -84,13 +71,13 @@ video_detector.loadModel()
 
 plt.show()
 
-video_detector.detectObjectsFromVideo(input_file_path=INPUT_FILE_NAME,
+video_detector.detectObjectsFromVideo(input_file_path=INPUT_FILE_NAME, 
                                           output_file_path=OUTPUT_FILE_NAME,
                                           frames_per_second=10, 
-                                          per_second_function=forSecond,
+                                        #   per_second_function=forSecond,
                                         #   per_frame_function=forFrame,
                                         #   per_minute_function=forMinute,
                                           video_complete_function=forFull,
-                                          minimum_percentage_probability=50,
-                                          return_detected_frame=True
+                                          minimum_percentage_probability=30,
+                                          return_detected_frame=True,
                                           log_progress=True)
