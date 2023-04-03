@@ -15,6 +15,13 @@
 1. `docker build -t heartexlabs/label-studio:latest .`
 2. `docker run -it -p 805:8080 -v %cd%/image-annotation-tool:/label-studio/data heartexlabs/label-studio:latest label-studio --log-level DEBUG`
 
+### Label studio backend (seperate folder)
+1. `git clone https://github.com/heartexlabs/label-studio-ml-backend`
+2. `cd label-studio-ml-backend/label_studio_ml/examples/mmdetection`
+3. `docker-compose up`
+4. `label-studio-ml init coco-detector --from mmdetection.py`
+5. `LABEL_STUDIO_HOSTNAME=http://host.docker.internal:805 label-studio-ml start coco-detector --with config_file=./faster_rcnn_r50_fpn_1x_coco.py checkpoint_file=./faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth`
+
 ## Perform video object detection and analysis
 ### Get images from videos
 1. Place videos in the `video-image-extractor/videos` folder
