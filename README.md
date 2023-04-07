@@ -19,6 +19,7 @@
 ### Label studio (local environment)
 1. `brew tap heartexlabs/tap`
 2. `brew install heartexlabs/tap/label-studio`
+3. `label-studio start -p 805 -db label_studio.sqlite3 --data-dir .`
 
 ### Label studio backend (seperate folder)
 1. `git clone https://github.com/heartexlabs/label-studio-ml-backend`
@@ -28,7 +29,9 @@
 5. `pip install -U -e .`
 6. `pip install -r label_studio_ml/examples/mmdetection/requirements.txt`
 7. `pip install mmdet==2.6.0 mmcv-full==1.2.0`
-8. `LABEL_STUDIO_HOSTNAME=http://host.docker.internal:805 label-studio-ml start coco-detector --with config_file=./faster_rcnn_r50_fpn_1x_coco.py checkpoint_file=./faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth`
+8. `cd label_studio_ml/examples/mmdetection`
+9. `label-studio-ml init coco-detector --script mmdetection.py`
+10. `LABEL_STUDIO_HOSTNAME=http://localhost:805 label-studio-ml start coco-detector --with config_file=./faster_rcnn_r50_fpn_1x_coco.py checkpoint_file=./faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth`
 
 ## Perform video object detection and analysis
 ### Get images from videos
