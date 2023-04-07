@@ -1,6 +1,7 @@
 ## Used libraries
 - [ImageAI](https://github.com/OlafenwaMoses/ImageAI) - Model training and object detection
-- [Label Studio](https://github.com/heartexlabs/label-studio) - Image annotation and dataset creation
+- [Label Studio Frontend](https://github.com/heartexlabs/label-studio) - Image annotation and dataset creation
+- [Label Studio ML Backend](https://github.com/heartexlabs/label-studio-ml-backend) - Image pre-annotation for easier dataset creation
 
 ## Installation
 ### Local environment
@@ -11,16 +12,23 @@
 1. `docker-compose up -d`
 2. `docker exec -it vehicle-classifier-and-counter_app_1 bash`
 
-### Label studio
+### Label studio (docker environment)
 1. `docker build -t heartexlabs/label-studio:latest .`
 2. `docker run -it -p 805:8080 -v %cd%/image-annotation-tool:/label-studio/data heartexlabs/label-studio:latest label-studio --log-level DEBUG`
 
+### Label studio (local environment)
+1. `brew tap heartexlabs/tap`
+2. `brew install heartexlabs/tap/label-studio`
+
 ### Label studio backend (seperate folder)
 1. `git clone https://github.com/heartexlabs/label-studio-ml-backend`
-2. `cd label-studio-ml-backend/label_studio_ml/examples/mmdetection`
-3. `docker-compose up`
-4. `label-studio-ml init coco-detector --from mmdetection.py`
-5. `LABEL_STUDIO_HOSTNAME=http://host.docker.internal:805 label-studio-ml start coco-detector --with config_file=./faster_rcnn_r50_fpn_1x_coco.py checkpoint_file=./faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth`
+2. `cd label-studio-ml-backend`
+3. `python3.8 -m venv venv`
+4. `source venv/bin/activate`
+5. `pip install -U -e .`
+6. `pip install -r label_studio_ml/examples/mmdetection/requirements.txt`
+7. `pip install mmdet==2.6.0 mmcv-full==1.2.0`
+8. `LABEL_STUDIO_HOSTNAME=http://host.docker.internal:805 label-studio-ml start coco-detector --with config_file=./faster_rcnn_r50_fpn_1x_coco.py checkpoint_file=./faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth`
 
 ## Perform video object detection and analysis
 ### Get images from videos
