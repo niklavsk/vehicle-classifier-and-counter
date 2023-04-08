@@ -40,14 +40,26 @@
 3. `python run.py`
 
 ### Annotate chosen/gathered images
+1. Go to `http://localhost:805`
+2. Set annotation labels under `<Project>/Settings/Labeling Interface`
+3. Add ML backend under `<Project>/Settings/Machine Learning`
+4. Import images
+5. Start annotating images by pressing `Label all images`
 
 ### Export annotated image dataset
 
 ### Split image dataset into training and validation sets
 
 ### Train object detection model
+1. `cd vehicle-classifier-model-training`
+2. `python fix-bounding-boxes.py`
+- In case of error `find . -name '.DS_Store' -type f -delete`
+3. `python run.py`
 
 ### Copy newest model to object detection directory
+1. Copy the created model from `vehicle-classifier-model-training/image-dataset/models/` to `custom-object-detection/`
+2. Rename the copied model to `image-dataset_model.pt`
+3. `cp vehicle-classifier-model-training/image-dataset/json/image-dataset_yolov3_detection_config.json custom-object-detection/image-dataset_yolov3_detection_config.json`
 
 ### Run video analysis script
 1. Place video in the `custom-object-detection` folder

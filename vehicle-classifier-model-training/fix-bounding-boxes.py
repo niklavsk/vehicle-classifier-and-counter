@@ -13,8 +13,9 @@ for entry in entries:
     #replace all occurrences of the required string
     data = data.replace('1.0000000000000002', '1.0')
     data = data.replace('1.0000000000000004', '1.0')
-    data = data.replace('1.0000000000000007', '1.0')    
-    
+    data = data.replace('1.0000000000000007', '1.0')
+    data = data.replace('1.0000000000000009', '1.0')
+
     if data.find('1.00') != -1:
         print(entry)
         print(data)
