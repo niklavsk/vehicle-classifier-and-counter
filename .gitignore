@@ -4,3 +4,9 @@
 *.pt
 traffic_output.mp4
 .DS_Store
+/vehicle-classifier-model-training/image-dataset/train/
+/vehicle-classifier-model-training/image-dataset/validation/
+/vehicle-classifier-model-training/image-dataset/models/
+/vehicle-classifier-model-training/image-dataset/json/
+/image-annotation-tool/export/
+
