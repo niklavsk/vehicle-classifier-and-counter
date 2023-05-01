@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import os
 
 EXECUTION_PATH = os.getcwd()
-INPUT_FILE_NAME = "traffic.mp4"
+INPUT_FILE_NAME = "traffic-2.mov"
 OUTPUT_FILE_NAME = "traffic_output"
 MODEL_PATH = "image-dataset_model.pt"
 MODEL_JSON_PATH = "image-dataset_yolov3_detection_config.json"
