@@ -47,12 +47,14 @@
 5. Start annotating images by pressing `Label all images`
 
 ### Export annotated image dataset
+1. Press `Export`
+2. Select `YOLO` and click `Export` again
+3. Unzip exported dataset
+4. Move contents of the unzipped archive to `image-dataset/export/`
 
-### Split image dataset into training and validation sets
-
-### Train object detection model
+### Split image dataset into sets and train object detection model
 1. `cd vehicle-classifier-model-training`
-2. `python fix-bounding-boxes.py`
+2. `python split-dataset.py`
 - In case of error `find . -name '.DS_Store' -type f -delete`
 3. `python run.py`
 
