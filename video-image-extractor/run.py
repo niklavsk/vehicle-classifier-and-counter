@@ -1,8 +1,8 @@
 import cv2 as cv
 import os
 
-INPUT_LIST = os.listdir('videos/')
-OUTPUT_FOLDER = 'images'
+INPUT_LIST = os.listdir("videos/")
+OUTPUT_FOLDER = "images"
 
 # create folder for images in current path if not exists
 current_path = os.getcwd()
@@ -15,7 +15,7 @@ if not os.path.exists(folder_path):
 seconds = 5
 
 for entry in INPUT_LIST:
-    file = 'videos/' + entry
+    file = "videos/" + entry
     cap = cv.VideoCapture(file)
     frame_count = int(cap.get(cv.CAP_PROP_FRAME_COUNT))
     fps = cap.get(cv.CAP_PROP_FPS) # Gets the frames per second
@@ -25,7 +25,7 @@ for entry in INPUT_LIST:
 
     # Check if camera opened successfully
     if (cap.isOpened() == False):
-        print('Error opening video stream or file')
+        print("Error opening video stream or file")
         continue
 
     current_frame = 1
@@ -35,7 +35,7 @@ for entry in INPUT_LIST:
         ret, frame = cap.read()
 
         # save frame
-        file_path = os.path.join(folder_path, entry + '-' + str(int(current_frame / frame_offset) + 1) + '.jpg')
+        file_path = os.path.join(folder_path, entry + "-" + str(int(current_frame / frame_offset) + 1) + ".jpg")
         cv.imwrite(file_path, frame)
 
         current_frame += frame_offset
