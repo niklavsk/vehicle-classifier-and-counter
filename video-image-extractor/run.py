@@ -12,7 +12,7 @@ if not os.path.exists(folder_path):
     os.mkdir(folder_path)
 
 # save frame every # seconds
-seconds = 30
+seconds = 5
 
 for entry in INPUT_LIST:
     file = 'videos/' + entry
