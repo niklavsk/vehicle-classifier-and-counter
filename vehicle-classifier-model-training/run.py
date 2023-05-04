@@ -5,16 +5,16 @@ NUM_OF_EXPERIMENTS = 50
 BATCH_SIZE = 16
 PRETRAINED_MODEL_PATH = "image-dataset/models/yolov3_image-dataset_mAP-0.29628_epoch-15.pt"
 CATEGORIES_LIST = [
-    "Motorcycles",
-    "Passenger cars",
-    "Pick-ups and vans < 3,5t",
-    "Trucks > 3,5t",
-    "Multi-trailer trucks",
-    "Semi-trailer trucks",
-    "Buses",
-    "Pedestrians",
-    "Bicycles",
-    "Other vehicles"
+	"Bicycles",
+	"Buses",
+	"Motorcycles",
+	"Multi-trailer trucks",
+	"Other vehicles",
+	"Passenger cars",
+	"Pedestrians",
+	"Pick-ups and vans < 3,5t",
+	"Semi-trailer trucks",
+	"Trucks > 3,5t"
 ]
 
 trainer = DetectionModelTrainer()

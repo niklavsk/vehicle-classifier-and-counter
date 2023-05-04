@@ -8,16 +8,16 @@ OUTPUT_FILE_NAME = "traffic_output"
 MODEL_PATH = "image-dataset_model.pt"
 MODEL_JSON_PATH = "image-dataset_yolov3_detection_config.json"
 CATEGORY_COLOR_MAP = {
-	"Motorcycles": "orange",
-	"Passenger cars": "green",
-	"Pick-ups and vans < 3,5t": "indigo",
-	"Trucks > 3,5t": "gold",
-	"Multi-trailer trucks": "gray",
-	"Semi-trailer trucks": "limegreen",
-	"Buses": "steelblue",
-	"Pedestrians": "pink",
-	"Bicycles": "red",
-	"Other vehicles": "chocolate"
+	"Bicycles": "orange",
+	"Buses": "green",
+	"Motorcycles": "indigo",
+	"Multi-trailer trucks": "gold",
+	"Other vehicles": "gray",
+	"Passenger cars": "limegreen",
+	"Pedestrians": "steelblue",
+	"Pick-ups and vans < 3,5t": "pink",
+	"Semi-trailer trucks": "red",
+	"Trucks > 3,5t": "chocolate"
 }
 
 resized = False
