@@ -56,7 +56,7 @@ for entry in entries:
 entries_no_ext = [x[:-4] for x in entries]
 numpy.random.shuffle(entries_no_ext)
 
-training, validation = entries_no_ext[:round(len(entries_no_ext) * 0.8)], entries_no_ext[round(len(entries_no_ext) * 0.8):]
+training, validation = entries_no_ext[:round(len(entries_no_ext) * 0.7)], entries_no_ext[round(len(entries_no_ext) * 0.7):]
 
 moveImagesWithLabels(training, os.getcwd() + "/" + TRAINING_DIRECTORY_PATH)
 moveImagesWithLabels(validation, os.getcwd() + "/" + VALIDATION_DIRECTORY_PATH)
