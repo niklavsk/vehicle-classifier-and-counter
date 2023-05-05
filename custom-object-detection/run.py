@@ -61,8 +61,6 @@ def forSecond(frame_number, output_arrays, count_arrays, average_count, returned
   		print("Something went wrong")
 
 def forFull(output_arrays, count_arrays, average_output_count):
-    # TODO: Add write to file
-
     print("FOR FULL:")
     # print("Array for the outputs of each frame ", output_arrays)
     # print("Array for output count for unique objects in each frame : ", count_arrays)
@@ -78,8 +76,8 @@ plt.show()
 
 video_detector.detectObjectsFromVideo(input_file_path=INPUT_FILE_NAME,
                                           output_file_path=OUTPUT_FILE_NAME,
-                                          frames_per_second=10,
-                                          per_second_function=forSecond,
+                                          frames_per_second=24,
+                                        #   per_second_function=forSecond,
                                         #   per_frame_function=forFrame,
                                         #   per_minute_function=forMinute,
                                           video_complete_function=forFull,
