@@ -75,12 +75,12 @@ video_detector.loadModel()
 plt.show()
 
 video_detector.detectObjectsFromVideo(input_file_path=INPUT_FILE_NAME,
-                                          output_file_path=OUTPUT_FILE_NAME,
-                                          frames_per_second=24,
-                                        #   per_second_function=forSecond,
-                                        #   per_frame_function=forFrame,
-                                        #   per_minute_function=forMinute,
-                                          video_complete_function=forFull,
-                                          minimum_percentage_probability=30,
-                                          return_detected_frame=True,
-                                          log_progress=True)
+										output_file_path=OUTPUT_FILE_NAME,
+										frames_per_second=24,
+									#   per_second_function=forSecond,
+									#   per_frame_function=forFrame,
+									#   per_minute_function=forMinute,
+										video_complete_function=forFull,
+										minimum_percentage_probability=30,
+										return_detected_frame=True,
+										log_progress=True)

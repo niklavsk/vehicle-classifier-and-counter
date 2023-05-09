@@ -1,0 +1,11 @@
+Label,Image Count,Instance Count
+Bicycles,98,112
+Buses,316,331
+Motorcycles,155,177
+Multi-trailer trucks,83,84
+Other vehicles,45,48
+Passenger cars,4571,7714
+Pedestrians,870,2204
+"Pick-ups and vans < 3,5t",709,750
+Semi-trailer trucks,176,222
+"Trucks > 3,5t",479,510

@@ -12,7 +12,7 @@ if not os.path.exists(folder_path):
     os.mkdir(folder_path)
 
 # save frame every # seconds
-seconds = 5
+SECONDS = 5
 
 for entry in INPUT_LIST:
     file = "videos/" + entry
@@ -21,7 +21,7 @@ for entry in INPUT_LIST:
     fps = cap.get(cv.CAP_PROP_FPS) # Gets the frames per second
 
     # calculates number of frames that creates 5 seconds of video
-    frame_offset = fps * seconds
+    frame_offset = fps * SECONDS
 
     # Check if camera opened successfully
     if (cap.isOpened() == False):

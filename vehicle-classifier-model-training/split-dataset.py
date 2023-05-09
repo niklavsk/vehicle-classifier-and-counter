@@ -2,6 +2,7 @@ EXPORT_LABELS_DIRECTORY_PATH = "image-dataset/export/labels/"
 EXPORT_IMAGES_DIRECTORY_PATH = "image-dataset/export/images/"
 TRAINING_DIRECTORY_PATH = "image-dataset/train/"
 VALIDATION_DIRECTORY_PATH = "image-dataset/validation/"
+TRAIN_VALID_SPLIT = 0.7
 
 import os
 import shutil
@@ -56,7 +57,7 @@ for entry in entries:
 entries_no_ext = [x[:-4] for x in entries]
 numpy.random.shuffle(entries_no_ext)
 
-training, validation = entries_no_ext[:round(len(entries_no_ext) * 0.7)], entries_no_ext[round(len(entries_no_ext) * 0.7):]
+training, validation = entries_no_ext[:round(len(entries_no_ext) * TRAIN_VALID_SPLIT)], entries_no_ext[round(len(entries_no_ext) * TRAIN_VALID_SPLIT):]
 
 moveImagesWithLabels(training, os.getcwd() + "/" + TRAINING_DIRECTORY_PATH)
 moveImagesWithLabels(validation, os.getcwd() + "/" + VALIDATION_DIRECTORY_PATH)
