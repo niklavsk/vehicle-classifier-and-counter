@@ -1,5 +1,5 @@
-import cv2 as cv
 import os
+import cv2
 
 INPUT_LIST = os.listdir("videos/")
 OUTPUT_FOLDER = "images"
@@ -12,13 +12,13 @@ if not os.path.exists(folder_path):
     os.mkdir(folder_path)
 
 # save frame every # seconds
-SECONDS = 5
+SECONDS = 2
 
 for entry in INPUT_LIST:
     file = "videos/" + entry
-    cap = cv.VideoCapture(file)
-    frame_count = int(cap.get(cv.CAP_PROP_FRAME_COUNT))
-    fps = cap.get(cv.CAP_PROP_FPS) # Gets the frames per second
+    cap = cv2.VideoCapture(file)
+    frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    fps = cap.get(cv2.CAP_PROP_FPS) # Gets the frames per second
 
     # calculates number of frames that creates 5 seconds of video
     frame_offset = fps * SECONDS
@@ -31,11 +31,11 @@ for entry in INPUT_LIST:
     current_frame = 1
 
     while current_frame <= frame_count:
-        cap.set(cv.CAP_PROP_POS_FRAMES, current_frame)
+        cap.set(cv2.CAP_PROP_POS_FRAMES, current_frame)
         ret, frame = cap.read()
 
         # save frame
         file_path = os.path.join(folder_path, entry + "-" + str(int(current_frame / frame_offset) + 1) + ".jpg")
-        cv.imwrite(file_path, frame)
+        cv2.imwrite(file_path, frame)
 
         current_frame += frame_offset

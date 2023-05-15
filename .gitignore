@@ -10,5 +10,5 @@ traffic_output.mp4
 /vehicle-classifier-model-training/image-dataset/models/
 /vehicle-classifier-model-training/image-dataset/json/
 /image-annotation-tool/export/
-
+*.json
 *.mov
