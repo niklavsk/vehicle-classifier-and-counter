@@ -8,18 +8,26 @@ import os
 import shutil
 import numpy
 
-def moveImagesWithLabels(files, destination):
+def copyImagesWithLabels(files, destination):
+	if os.path.exists(destination + "annotations/"):
+		shutil.rmtree(destination + "annotations/")
+		os.makedirs(destination + "annotations/")
+
+	if os.path.exists(destination + "images/"):
+		shutil.rmtree(destination + "images/")
+		os.makedirs(destination + "images/")
+
 	for file in files:
 		annotation = os.getcwd() + "/" + EXPORT_LABELS_DIRECTORY_PATH + file + ".txt"
 		image = os.getcwd() + "/" + EXPORT_IMAGES_DIRECTORY_PATH + file
 
-		shutil.move(annotation, destination + "annotations/" + file + ".txt")
+		shutil.copy(annotation, destination + "annotations/" + file + ".txt")
 
 		if os.path.isfile(image + ".png"):
-			shutil.move(image + ".png", destination + "images/" + file + ".png")
+			shutil.copy(image + ".png", destination + "images/" + file + ".png")
 
 		else:
-			shutil.move(image + ".jpg", destination + "images/" + file + ".jpg")
+			shutil.copy(image + ".jpg", destination + "images/" + file + ".jpg")
 
 
 entries = os.listdir(EXPORT_LABELS_DIRECTORY_PATH)
@@ -33,12 +41,17 @@ for entry in entries:
     data = fin.read()
 
     #replace all occurrences of the required string
+    data = data.replace("-0.0000000000000002", "0.0")
+    data = data.replace("-0.0000000000000001", "0.0")
+    data = data.replace("-0.0", "0.0")
+    data = data.replace("0.0000000000000000", "0.0")
+    data = data.replace("1.0000000000000000", "1.0")
     data = data.replace("1.0000000000000002", "1.0")
     data = data.replace("1.0000000000000004", "1.0")
     data = data.replace("1.0000000000000007", "1.0")
     data = data.replace("1.0000000000000009", "1.0")
 
-    if data.find("1.00") != -1:
+    if data.find("-") != -1:
         print(entry)
         print(data)
 
@@ -59,5 +72,5 @@ numpy.random.shuffle(entries_no_ext)
 
 training, validation = entries_no_ext[:round(len(entries_no_ext) * TRAIN_VALID_SPLIT)], entries_no_ext[round(len(entries_no_ext) * TRAIN_VALID_SPLIT):]
 
-moveImagesWithLabels(training, os.getcwd() + "/" + TRAINING_DIRECTORY_PATH)
-moveImagesWithLabels(validation, os.getcwd() + "/" + VALIDATION_DIRECTORY_PATH)
+copyImagesWithLabels(training, os.getcwd() + "/" + TRAINING_DIRECTORY_PATH)
+copyImagesWithLabels(validation, os.getcwd() + "/" + VALIDATION_DIRECTORY_PATH)

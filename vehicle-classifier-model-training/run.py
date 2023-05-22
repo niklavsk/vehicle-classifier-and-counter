@@ -1,7 +1,7 @@
 from imageai.Detection.Custom import DetectionModelTrainer
 
 IMAGE_DATASET_DIRECTORY = "image-dataset"
-NUM_OF_EXPERIMENTS = 50
+NUM_OF_EXPERIMENTS = 100
 BATCH_SIZE = 16
 PRETRAINED_MODEL_PATH = "image-dataset/models/yolov3_image-dataset_mAP-0.29628_epoch-15.pt"
 CATEGORIES_LIST = [
